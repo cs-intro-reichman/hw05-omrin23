@@ -185,7 +185,7 @@ public class GameOfLife {
 
 		for (int i = 1; i < N - 1; i++) {
 			for (int j = 1; j < M - 1; j++) {
-				System.out.printf("%4s", arr[i][j]);
+				System.out.printf("%2s", arr[i][j]);
 			}
 			System.out.println();
 		}
