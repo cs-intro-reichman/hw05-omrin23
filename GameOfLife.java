@@ -129,6 +129,8 @@ public class GameOfLife {
 			else if (count(board, i, j) == 2 || count(board, i, j) == 3) {
 				returnValue = 1;
 			}
+				// linoy feedback: why do you need more conditions? my suggestion is:
+				//  (count(board, i, j) < 2) || (count(board, i, j) > 3) returnValue=0 
 			else if (count(board, i, j) > 3) {
 				returnValue = 0;
 			}
@@ -147,6 +149,7 @@ public class GameOfLife {
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	public static int count(int[][] board, int i, int j) {
+		// linoy feedback: bad function. Here you can send to an external function that gets a cell in the matrix and check ==1, then increase the counter. example below... 
 		
 		int count = 0;
 		if (board[i - 1][j - 1] == 1) {
@@ -175,6 +178,25 @@ public class GameOfLife {
 		}
 
 		return count;
+	}
+
+	//linoy feeback: suggestion is: 
+
+	public static int count(int[][] board, int i, int j) {
+		int counter=0;
+		for(int i=0;...){
+			for(int j=0; ...){
+				counter+= count(board[i][j]);
+			}
+		}
+		return counter;
+	}
+	
+	public static int count(int cell) {
+		if(cell==1){
+			return 1;
+		}
+		else return 0;
 	}
 	
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
